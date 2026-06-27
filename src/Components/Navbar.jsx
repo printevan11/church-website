@@ -41,17 +41,17 @@ export default function App() {
 
           <a
             href="#"
-            className="flex items-center gap-2 group focus:outline-none"
-            style={{ outline: 'none' }}
+            className="logo-link flex items-center gap-2 focus:outline-none"
+            style={{ outline: 'none', WebkitTapHighlightColor: 'transparent' }}
             aria-label="Crossroads Home"
           >
             <img
               src={logo}
               alt="Crossroads Logo"
-              className={`w-36 h-36 object-contain transition-transform duration-200 group-hover:scale-[1.02] ${
+              className={`w-36 h-36 object-contain ${
                 scrolled ? '' : 'brightness-0 invert'
               }`}
-              style={{ outline: 'none' }}
+              style={{ outline: 'none', pointerEvents: 'none' }}
             />
           </a>
 

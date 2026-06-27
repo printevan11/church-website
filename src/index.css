@@ -20,7 +20,7 @@ nav a:active {
 }
 
 /* Scroll underline animation */
-nav a::after {
+nav a:not(.logo-link)::after {
   content: '';
   position: absolute;
   left: 50%;
@@ -31,7 +31,7 @@ nav a::after {
   transition: width 0.3s ease, left 0.3s ease;
 }
 
-nav a:hover::after {
+nav a:not(.logo-link):hover::after {
   width: 100%;
   left: 0;
 }
