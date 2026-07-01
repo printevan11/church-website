@@ -1,5 +1,9 @@
 import { MapPin, Mail, Phone } from 'lucide-react';
-import logo from '../assets/logo.png';
+import logo from '../assets/logo-3.png';
+
+const footerLogoStyle = {
+  filter: 'grayscale(100%) brightness(0) contrast(100%)'
+};
 
 export default function Footer({ navItems }) {
   return (
@@ -9,7 +13,7 @@ export default function Footer({ navItems }) {
 
           <div className="md:col-span-2">
             <div className="flex items-center gap-3.5 mb-4">
-              <img src={logo} alt="Logo" className="w-40 h-40 object-contain" />
+              <img src={logo} alt="Logo" className="w-40 h-40 object-contain" style={footerLogoStyle} />
             </div>
 
             {/* Social Media Icons - between logo and text */}

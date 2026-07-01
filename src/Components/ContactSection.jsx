@@ -65,7 +65,7 @@ export default function ContactSection({ visibleSections, formData, setFormData,
                     <input
                       type="text"
                       value={nameInput}
-                      onChange={(e) => setFormData({ ...formData, nameInput: e.target.value })}
+                      onChange={(e) => setFormData('nameInput', e.target.value)}
                       placeholder="John Doe"
                       required
                       className="w-full border border-neutral-200 rounded-md p-3 text-sm focus:outline-none focus:border-[#1b2a4a] bg-neutral-50"
@@ -76,7 +76,7 @@ export default function ContactSection({ visibleSections, formData, setFormData,
                     <input
                       type="email"
                       value={emailInput}
-                      onChange={(e) => setFormData({ ...formData, emailInput: e.target.value })}
+                      onChange={(e) => setFormData('emailInput', e.target.value)}
                       placeholder="john@example.com"
                       required
                       className="w-full border border-neutral-200 rounded-md p-3 text-sm focus:outline-none focus:border-[#1b2a4a] bg-neutral-50"
@@ -86,7 +86,7 @@ export default function ContactSection({ visibleSections, formData, setFormData,
                     <label className="text-xs font-semibold text-neutral-600 block mb-1.5">Message</label>
                     <textarea
                       value={messageInput}
-                      onChange={(e) => setFormData({ ...formData, messageInput: e.target.value })}
+                      onChange={(e) => setFormData('messageInput', e.target.value)}
                       placeholder="How may we assist you?"
                       rows="4"
                       required

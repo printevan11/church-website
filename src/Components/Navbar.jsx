@@ -1,12 +1,14 @@
 import React, { useState, useEffect } from 'react';
 import { X, ArrowUpRight } from 'lucide-react';
-import logo from '../assets/logo.png';
+import logo from '../assets/logo-3.png';
 
 const NAV_ITEMS = [
   { label: 'Mission & Vision', href: '#mission' },
-  { label: 'About Us', href: '#about-church' },
-  { label: 'Gallery', href: '#gallery' },
+  { label: 'About CYN', href: '#about-cyn' },
+  { label: 'LifeGroup', href: '#about-lifegroup' },
+  { label: 'Updates', href: '#updates' },
   { label: 'Events', href: '#activities' },
+  { label: 'School Ministry', href: '#school-ministry' },
   { label: 'Contact Us', href: '#contact-us' }
 ];
 
@@ -48,10 +50,12 @@ export default function App() {
             <img
               src={logo}
               alt="Crossroads Logo"
-              className={`w-36 h-36 object-contain ${
-                scrolled ? '' : 'brightness-0 invert'
-              }`}
-              style={{ outline: 'none', pointerEvents: 'none' }}
+              className="w-32 h-32 object-contain transition-all duration-300"
+              style={{
+                outline: 'none',
+                pointerEvents: 'none',
+                filter: scrolled ? 'brightness(0)' : 'brightness(0) invert(1)',
+              }}
             />
           </a>
 

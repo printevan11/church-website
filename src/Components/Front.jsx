@@ -1,49 +1,28 @@
 import React, { useState } from 'react';
 import {
   X,
-  ArrowRight,
-  Calendar,
   Play,
-  Smartphone,
   Heart,
-  BookOpen,
-  Users,
   MapPin,
-  Mail,
-  Phone,
   Info,
-  Clock,
-  ChevronLeft,
-  ChevronRight
+  Clock
 } from 'lucide-react';
 import Footer from './Footer';
 import MissionVision from './MissionVision';
 import AboutChurch from './AboutChurch';
-import GallerySection from './GallerySection';
+import UpdatesFeed from './UpdatesFeed';
 import EventsSection from './EventsSection';
+import SchoolMinistry from './SchoolMinistry';
+import LifeGroupArea from './LifeGroupArea';
 import ContactSection from './ContactSection';
-import logo from '../assets/logo.png';
 import JIL1 from '../assets/JIL-1.jpg';
 import JIL2 from '../assets/JIL-2.jpg';
 import JIL3 from '../assets/JIL-3.jpg';
 import JIL4 from '../assets/JIL-4.jpg';
 import JIL5 from '../assets/JIL-5.jpg';
-import JIL6 from '../assets/JIL-6.jpg';
-import JIL7 from '../assets/JIL-7.jpg';
-import JIL8 from '../assets/JIL-8.jpg';
-import JIL9 from '../assets/JIL-9.jpg';
-import JIL10 from '../assets/JIL-10.jpg';
-
-const MISSION_VISION = [
-  {
-    title: "Mission",
-    content: "To inspire the youth to live for Christ and to offer the prime years of their lives in service to God and Country"
-  },
-  {
-    title: "Vision",
-    content: "A dynamic youth movement transforming the lives of young people worldwide through the Full-Gospel of the Lord Jesus Christ for righteousness and excellent leadership in the church and nations"
-  }
-];
+import pic1 from '../assets/pic1.jpg';
+import pic2 from '../assets/pic2.jpg';
+import pic3 from '../assets/pic3.jpg';
 
 const HERO_VALUES = [
   { image: JIL1 },
@@ -55,23 +34,25 @@ const HERO_VALUES = [
 
 const NAV_ITEMS = [
   { label: 'Mission & Vision', href: '#mission' },
-  { label: 'About Church', href: '#about-church' },
-  { label: 'About Us', href: '#about-us' },
-  { label: 'Gallery', href: '#gallery' },
-  { label: 'Activities', href: '#activities' },
+  { label: 'About CYN', href: '#about-cyn' },
+  { label: 'LifeGroup', href: '#about-lifegroup' },
+  { label: 'Updates', href: '#updates' },
+  { label: 'Events', href: '#activities' },
+  { label: 'School Ministry', href: '#school-ministry' },
   { label: 'Contact Us', href: '#contact-us' }
 ];
 
-const GALLERY_IMAGES = [
-  JIL1, JIL2, JIL3, JIL4, JIL5, JIL6, JIL7, JIL8, JIL9
+const WELCOME_ITEMS = Array.from({ length: 8 }, (_, index) => index);
+
+const FEATURE_LINKS = [
+  { title: 'Get To Know Us', href: '#about-cyn', image: pic1 },
+  { title: 'Updates', href: '#updates', image: pic2 },
+  { title: 'Events', href: '#activities', image: pic3 }
 ];
 
 export default function App() {
-  const [isOpen, setIsOpen] = useState(false);
   const [activeModal, setActiveModal] = useState(null);
-  const [currentSlide, setCurrentSlide] = useState(0);
   const [heroSlide, setHeroSlide] = useState(0);
-  const [galleryIndex, setGalleryIndex] = useState(null);
   const [emailInput, setEmailInput] = useState('');
   const [nameInput, setNameInput] = useState('');
   const [messageInput, setMessageInput] = useState('');
@@ -126,26 +107,10 @@ export default function App() {
   const handleContactFormSubmit = (e) => {
     e.preventDefault();
     setFormSent(true);
-    setMessageInput('');
+    setContactFormData({ nameInput: '', emailInput: '', messageInput: '' });
     setTimeout(() => {
       setFormSent(false);
     }, 3000);
-  };
-
-  const nextSlide = () => {
-    setCurrentSlide((prev) => (prev + 1) % MISSION_VISION.length);
-  };
-
-  const prevSlide = () => {
-    setCurrentSlide((prev) => (prev - 1 + MISSION_VISION.length) % MISSION_VISION.length);
-  };
-
-  const nextHeroSlide = () => {
-    setHeroSlide((prev) => (prev + 1) % HERO_VALUES.length);
-  };
-
-  const prevHeroSlide = () => {
-    setHeroSlide((prev) => (prev - 1 + HERO_VALUES.length) % HERO_VALUES.length);
   };
 
   // Auto-advance hero carousel
@@ -202,56 +167,61 @@ export default function App() {
         </div>
       </section>
 
-      {}
-      <MissionVision visibleSections={visibleSections} />
-
-      {}
-      <AboutChurch visibleSections={visibleSections} />
-
-      {}
-      <GallerySection visibleSections={visibleSections} onImageClick={(idx) => setGalleryIndex(idx)} />
-
-      {}
-      <section id="lead" data-section className={`relative py-28 px-6 overflow-hidden transition-all duration-700 ${
-        visibleSections['lead'] ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-8'
-      }`}>
-
-        {/* Backdrop visual container */}
-        <div className="absolute inset-0 z-0">
-          <img
-            src={JIL10}
-            alt="Backdrop"
-            className="w-full h-full object-cover"
-          />
-          <div className="absolute inset-0 bg-black/70" />
-        </div>
-
-        <div className="relative max-w-4xl mx-auto text-center z-10">
-
-          <blockquote className="text-3xl md:text-5xl font-bold italic text-white leading-tight max-w-3xl mx-auto px-4">
-            "Reaching the World for Jesus"
-          </blockquote>
-
-          <p className="text-xl md:text-2xl font-semibold italic text-white/90 mt-4">
-            One Person at a Time
-          </p>
-
-          <div className="mt-8 pt-6 border-t border-white/30 inline-block">
-            <p className="text-sm md:text-base text-white/70 font-medium uppercase tracking-widest">
-              By Being and Making Disciples
-            </p>
-            <p className="text-xs text-white/50 mt-1">
-              where we live, learn, work and play
-            </p>
-          </div>
-
+      <section className="welcome-marquee bg-[#f5f5f7] py-10 md:py-14 overflow-hidden" aria-label="Welcome Home">
+        <div className="welcome-marquee__track">
+          {[...WELCOME_ITEMS, ...WELCOME_ITEMS].map((_, index) => (
+            <span
+              key={index}
+              className={`welcome-marquee__text ${
+                index % 2 === 0 ? 'welcome-marquee__text--solid' : 'welcome-marquee__text--outline'
+              }`}
+            >
+              WELCOME<br />HOME
+            </span>
+          ))}
         </div>
       </section>
 
-      {}
+      <section className="grid grid-cols-1 md:grid-cols-3 bg-black">
+        {FEATURE_LINKS.map((item) => (
+          <a
+            key={item.title}
+            href={item.href}
+            className="group relative min-h-[340px] md:min-h-[520px] overflow-hidden"
+          >
+            <img
+              src={item.image}
+              alt={item.title}
+              className="absolute inset-0 h-full w-full object-cover transition-transform duration-700 group-hover:scale-105"
+            />
+            <div className="absolute inset-0 bg-gradient-to-t from-black via-black/35 to-black/10" />
+            <div className="absolute inset-0 flex flex-col items-center justify-center px-6 text-center">
+              <h2 className="text-3xl md:text-4xl lg:text-5xl font-black text-white tracking-tight">
+                {item.title}
+              </h2>
+              <div className="mt-24 flex items-center gap-5 text-white">
+                <span className="text-sm md:text-base font-black">Learn More</span>
+                <span className="text-3xl leading-none transition-transform duration-300 group-hover:translate-x-2">
+                  →
+                </span>
+              </div>
+            </div>
+          </a>
+        ))}
+      </section>
+
+      <MissionVision visibleSections={visibleSections} />
+
+      <AboutChurch visibleSections={visibleSections} />
+
+      <UpdatesFeed visibleSections={visibleSections} />
+
       <EventsSection visibleSections={visibleSections} />
 
-      {}
+      <SchoolMinistry visibleSections={visibleSections} />
+
+      <LifeGroupArea visibleSections={visibleSections} />
+
       <ContactSection
         visibleSections={visibleSections}
         formData={contactFormData}

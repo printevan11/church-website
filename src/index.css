@@ -53,3 +53,47 @@ nav a:not(.logo-link):hover::after {
 .animate-scaleIn {
   animation: scaleIn 0.2s ease-out forwards;
 }
+
+.welcome-marquee {
+  border-bottom: 1px solid rgba(0, 0, 0, 0.06);
+}
+
+.welcome-marquee__track {
+  display: flex;
+  width: max-content;
+  gap: clamp(2rem, 5vw, 5rem);
+  animation: welcomeMarquee 26s linear infinite;
+  will-change: transform;
+}
+
+.welcome-marquee__text {
+  flex: 0 0 auto;
+  color: #000;
+  font-size: clamp(2rem, 5vw, 4rem);
+  font-weight: 900;
+  line-height: 0.92;
+  letter-spacing: 0;
+  white-space: nowrap;
+}
+
+.welcome-marquee__text--outline {
+  color: transparent;
+  -webkit-text-stroke: 2px #111;
+  text-stroke: 2px #111;
+}
+
+@keyframes welcomeMarquee {
+  from {
+    transform: translateX(0);
+  }
+
+  to {
+    transform: translateX(-50%);
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .welcome-marquee__track {
+    animation: none;
+  }
+}
